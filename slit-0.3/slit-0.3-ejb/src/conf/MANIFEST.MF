@@ -1,0 +1,2 @@
+Manifest-Version: 1.0
+Class-Path: lib/slit-0.3-lib.jar
