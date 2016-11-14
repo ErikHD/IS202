@@ -14,4 +14,5 @@ import javax.ejb.Remote;
 @Remote
 public interface NewSessionBeanRemote {
     String getModuleNAme();
+    String getBesvarelseKommentarFromID(int id);
 }

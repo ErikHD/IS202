@@ -33,7 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Bruker.findById", query = "SELECT b FROM Bruker b WHERE b.id = :id"),
     @NamedQuery(name = "Bruker.findByFornavn", query = "SELECT b FROM Bruker b WHERE b.fornavn = :fornavn"),
     @NamedQuery(name = "Bruker.findByEtternavn", query = "SELECT b FROM Bruker b WHERE b.etternavn = :etternavn"),
-    @NamedQuery(name = "Bruker.findByEpost", query = "SELECT b FROM Bruker b WHERE b.epost = :epost")})
+    @NamedQuery(name = "Bruker.findByEpost", query = "SELECT b FROM Bruker b WHERE b.epost = :epost"),
+    @NamedQuery(name = "Bruker.findByPassword", query = "SELECT b FROM Bruker b WHERE b.password = :password")})
 public class Bruker implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -57,6 +58,11 @@ public class Bruker implements Serializable {
     @Size(min = 1, max = 40)
     @Column(name = "epost")
     private String epost;
+    @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 20)
+    @Column(name = "password")
+    private String password;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "id")
     private List<Foreleser> foreleserList;
 
@@ -67,11 +73,12 @@ public class Bruker implements Serializable {
         this.id = id;
     }
 
-    public Bruker(Integer id, String fornavn, String etternavn, String epost) {
+    public Bruker(Integer id, String fornavn, String etternavn, String epost, String password) {
         this.id = id;
         this.fornavn = fornavn;
         this.etternavn = etternavn;
         this.epost = epost;
+        this.password = password;
     }
 
     public Integer getId() {
@@ -104,6 +111,14 @@ public class Bruker implements Serializable {
 
     public void setEpost(String epost) {
         this.epost = epost;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     @XmlTransient

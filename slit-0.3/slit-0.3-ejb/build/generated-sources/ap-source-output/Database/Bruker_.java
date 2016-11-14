@@ -6,10 +6,11 @@ import javax.persistence.metamodel.ListAttribute;
 import javax.persistence.metamodel.SingularAttribute;
 import javax.persistence.metamodel.StaticMetamodel;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-11-02T13:30:19")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-11-11T10:39:55")
 @StaticMetamodel(Bruker.class)
 public class Bruker_ { 
 
+    public static volatile SingularAttribute<Bruker, String> password;
     public static volatile SingularAttribute<Bruker, String> etternavn;
     public static volatile SingularAttribute<Bruker, String> epost;
     public static volatile SingularAttribute<Bruker, Integer> id;
